@@ -39,9 +39,11 @@ function Display() {
       <h2 className="text-center my-4">Music </h2>
       <div className="container my-4">
         <div className="row justify-content-center align-items-center ">
-          {productsArr.map((item) => {
+          {productsArr.map((item, index) => {
             return (
               <Content
+                key={index}
+                id={index}
                 url={item.imageUrl}
                 title={item.title}
                 price={item.price}
