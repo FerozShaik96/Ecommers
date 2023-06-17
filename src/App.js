@@ -3,9 +3,10 @@ import NavBar from "./components/NavBar/NavBar";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Display from "./components/Display/Display";
+import CartProvider from "./Store/CartProvider";
 function App() {
   return (
-    <React.Fragment>
+    <CartProvider>
       <header>
         <NavBar />
         <Header />
@@ -16,7 +17,7 @@ function App() {
       <footer>
         <Footer />
       </footer>
-    </React.Fragment>
+    </CartProvider>
   );
 }
 

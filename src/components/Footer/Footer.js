@@ -6,8 +6,8 @@ import flipkart from "../../Assets/flipkart-drawn-logo.png";
 function Footer() {
   return (
     <React.Fragment>
-      <div className="bg-success d-flex pt-5 pb-2  justify-content-center">
-        <h1 className="display-1 text-white fw-bold">The Generic</h1>
+      <div className="bg-info d-flex pt-3 pb-2 rounded  justify-content-center align-items-center">
+        <h1 className="display-1 text-white fw-bold text-muted">The Generic</h1>
         <div className="ms-5">
           <span className="me-3 ">
             <a href="https://google.com">

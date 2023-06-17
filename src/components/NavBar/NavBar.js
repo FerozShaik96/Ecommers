@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import ModalCart from "../../UI/Modal/Modal";
+import CartContext from "../../Store/CartContext";
+import CartIcon from "../Cart/CartIcon";
 
 function NavBar() {
+  const cardCtx = useContext(CartContext);
+  const numberOfCartItems = cardCtx.items.reduce((currNumber, item) => {
+    return currNumber + item.UpdatedAmount;
+  }, 0);
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -25,7 +31,9 @@ function NavBar() {
             </Nav.Link>
           </Nav>
           <Button variant="primary" className="text-white" onClick={handleShow}>
-            Cart <span>0</span>
+            <CartIcon className="px-2" />
+            <span className="px-2 fw-bold">Cart</span>{" "}
+            <span>{numberOfCartItems}</span>
           </Button>
           {setShow && <ModalCart show={show} handleClose={handleClose} />}
         </Container>
