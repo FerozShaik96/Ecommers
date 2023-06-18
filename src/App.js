@@ -1,24 +1,18 @@
 import React from "react";
-import NavBar from "./components/NavBar/NavBar";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Display from "./components/Display/Display";
-import CartProvider from "./Store/CartProvider";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./Home/Homereneder/HomePage";
+import Storepage from "./components/StoreDisplay/StorePage";
+import About from "./About/Aboutrender/About";
+
+const router = createBrowserRouter([
+  { path: "/", element: <HomePage /> },
+  { path: "/home", element: <HomePage /> },
+  { path: "/store", element: <Storepage /> },
+  { path: "/about", element: <About /> },
+]);
+
 function App() {
-  return (
-    <CartProvider>
-      <header>
-        <NavBar />
-        <Header />
-      </header>
-      <main>
-        <Display />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </CartProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

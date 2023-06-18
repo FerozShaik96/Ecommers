@@ -7,7 +7,7 @@ function ModalCart(props) {
     <React.Fragment>
       <Modal show={props.show} onHide={props.handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Your Cart</Modal.Title>
+          <Modal.Title className="text-muted fw-bold">Your Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Cart />
