@@ -42,7 +42,6 @@ const CartProvider = (props) => {
       item: item,
     });
   };
-  console.log(cartState.items);
   const removeItemFromCartHandler = (id) => {};
   const cartContext = {
     // items: cartState.items,
