@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Loading from "../../Loading";
 import { Button, Container } from "react-bootstrap";
 
 const HomeContent = () => {
-  const [show, setUnShow] = useState(true);
   const [Movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const fetchData = async () => {
-    setUnShow(false);
+  const fetchData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
-      const Data = await fetch("https://swapi.dev/api/film/ ");
+      const Data = await fetch("https://swapi.dev/api/films/ ");
       if (Data.status !== 200) {
         throw new Error("Something Went Wrong Please Try again later");
       }
@@ -30,7 +28,10 @@ const HomeContent = () => {
       setError(error.message);
     }
     setIsLoading(false);
-  };
+  }, []);
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
   return (
     <React.Fragment>
       <Container>
@@ -53,13 +54,6 @@ const HomeContent = () => {
             ))}
         </ul>
       </Container>
-      {show && (
-        <div className=" d-flex justify-content-center align-item-center">
-          <Button className="my-3 " onClick={fetchData}>
-            Fetch Data
-          </Button>
-        </div>
-      )}
       {!isLoading && error && <p>{error}</p>}
       {isLoading && <Loading />}
     </React.Fragment>
