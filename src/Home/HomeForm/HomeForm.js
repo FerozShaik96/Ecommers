@@ -27,7 +27,7 @@ const HomeForm = () => {
               <Form.Label>Movie Name </Form.Label>
               <Form.Control
                 ref={NameRef}
-                style={{ width: "500px" }}
+                style={{ maxwidth: "500px" }}
                 type="text"
                 placeholder="Movie Name"
               />
