@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import Loading from "../../Loading";
 import { Button, Container } from "react-bootstrap";
 
 const HomeContent = () => {
   const [show, setUnShow] = useState(true);
   const [Movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const fetchData = async () => {
     setUnShow(false);
+    setIsLoading(true);
     const Data = await fetch("https://swapi.dev/api/films");
     let response = await Data.json();
     const transferedData = response.results.map((item) => {
@@ -17,6 +20,7 @@ const HomeContent = () => {
       };
     });
     setMovies(transferedData);
+    setIsLoading(false);
   };
   console.log(Movies);
   return (
@@ -47,6 +51,7 @@ const HomeContent = () => {
           </Button>
         </div>
       )}
+      {isLoading && <Loading />}
     </React.Fragment>
   );
 };
