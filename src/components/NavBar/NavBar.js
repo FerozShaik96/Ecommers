@@ -21,7 +21,7 @@ function NavBar() {
             className="bg-white"
           />
           <Navbar.Collapse id="basic-navbar-nav ">
-            <Nav className=" m-auto ">
+            <Nav className=" m-auto gap-5">
               <Nav.Link href="home" className="text-white  fs-5 fw-bold ">
                 Home
               </Nav.Link>
@@ -30,6 +30,9 @@ function NavBar() {
               </Nav.Link>
               <Nav.Link href="about" className="text-white  fs-5 fw-bold ">
                 About
+              </Nav.Link>
+              <Nav.Link href="contact" className="text-white  fs-5 fw-bold ">
+                Contact Us
               </Nav.Link>
             </Nav>
             <Button
