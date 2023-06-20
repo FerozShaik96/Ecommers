@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
-const HomeForm = () => {
+const HomeForm = (props) => {
   const NameRef = useRef();
   const DirectorRef = useRef();
   const DateRef = useRef();
@@ -16,7 +16,7 @@ const HomeForm = () => {
       Date: DateNumber,
       id: Math.random().toString(),
     };
-    console.log(userData);
+    props.onAddMovies(userData);
   };
   return (
     <Container>
