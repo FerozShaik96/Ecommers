@@ -10,20 +10,31 @@ const HomeContent = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const Data = await fetch("https://swapi.dev/api/films/ ");
+      const Data = await fetch(
+        "https://ecommers-8b1d4-default-rtdb.firebaseio.com/movies.json"
+      );
       if (Data.status !== 200) {
         throw new Error("Something Went Wrong Please Try again later");
       }
       let response = await Data.json();
-      const transferedData = response.results.map((item) => {
-        return {
-          id: item.episode_id,
-          date: item.release_date,
-          title: item.title,
-          director: item.director,
-        };
-      });
-      setMovies(transferedData);
+      // const transferedData = response.results.map((item) => {
+      //   return {
+      //     id: item.episode_id,
+      //     date: item.release_date,
+      //     title: item.title,
+      //     director: item.director,
+      //   };
+      // });
+      const LoadedMovies = [];
+      for (const key in response) {
+        LoadedMovies.push({
+          id: key,
+          title: response[key].Movie,
+          director: response[key].Director,
+          date: response[key].Date,
+        });
+      }
+      setMovies(LoadedMovies);
     } catch (error) {
       setError(error.message);
     }
