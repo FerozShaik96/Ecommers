@@ -1,8 +1,7 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-const HomeNavBar = () => {
+import { Nav, Navbar, Container } from "react-bootstrap";
+
+const NavBar = () => {
   return (
     <React.Fragment>
       <Navbar expand="lg" className="bg-dark">
@@ -32,4 +31,4 @@ const HomeNavBar = () => {
     </React.Fragment>
   );
 };
-export default HomeNavBar;
+export default NavBar;
