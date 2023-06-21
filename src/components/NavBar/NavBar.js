@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import ModalCart from "../../UI/Modal/Modal";
 import CartContext from "../../Store/CartContext";
@@ -22,18 +23,30 @@ function NavBar() {
           />
           <Navbar.Collapse id="basic-navbar-nav ">
             <Nav className=" m-auto gap-5">
-              <Nav.Link href="home" className="text-white  fs-5 fw-bold ">
+              <Link
+                to="/home"
+                className="text-white p-3 text-decoration-none fs-5 fw-bold "
+              >
                 Home
-              </Nav.Link>
-              <Nav.Link href="store" className="text-white  fs-5 fw-bold ">
+              </Link>
+              <Link
+                to="/store"
+                className="text-white p-3 text-decoration-none fs-5 fw-bold "
+              >
                 Store
-              </Nav.Link>
-              <Nav.Link href="about" className="text-white  fs-5 fw-bold ">
+              </Link>
+              <Link
+                to="/about"
+                className="text-white p-3 text-decoration-none fs-5 fw-bold "
+              >
                 About
-              </Nav.Link>
-              <Nav.Link href="contact" className="text-white  fs-5 fw-bold ">
+              </Link>
+              <Link
+                to="/contact"
+                className="text-white p-3 text-decoration-none fs-5 fw-bold "
+              >
                 Contact Us
-              </Nav.Link>
+              </Link>
             </Nav>
             <Button
               variant="primary"
