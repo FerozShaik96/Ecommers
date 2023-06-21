@@ -7,7 +7,7 @@ const ContactPage = () => {
   return (
     <React.Fragment>
       <header>
-        <NavBar />
+        {/* <NavBar /> */}
         <Header />
       </header>
       <main>

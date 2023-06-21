@@ -1,9 +1,9 @@
 import React, { useEffect, useCallback } from "react";
 import Footer from "../../UI/Footer/Footer";
-import HomeNavBar from "../HomeNavBar/HomeNavBar";
-import HomeHeader from "../HomeHeader/Header";
-import HomeContent from "../HomeContent/HomeContent";
-import HomeForm from "../HomeForm/HomeForm";
+import HomeNavBar from "../../Home/HomeNavBar/HomeNavBar";
+import HomeHeader from "../../Home/HomeHeader/Header";
+import HomeContent from "../../Home/HomeContent/HomeContent";
+import HomeForm from "../../Home/HomeForm/HomeForm";
 const HomePage = () => {
   const AddUserData = async (Movies) => {
     const response = await fetch(
@@ -22,7 +22,7 @@ const HomePage = () => {
 
   return (
     <React.Fragment>
-      <HomeNavBar />
+      {/* <HomeNavBar /> */}
       <HomeHeader />
       <HomeForm onAddMovies={AddUserData} />
       <HomeContent />

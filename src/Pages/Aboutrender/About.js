@@ -7,7 +7,7 @@ import Footer from "../../UI/Footer/Footer";
 const AboutPage = () => {
   return (
     <React.Fragment>
-      <AboutNav />
+      {/* <AboutNav /> */}
       <AboutHeader />
       <AboutContent />
       <Footer />
