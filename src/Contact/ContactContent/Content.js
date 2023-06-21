@@ -28,7 +28,7 @@ const Content = () => {
   };
 
   return (
-    <Container className=" d-flex justify-content-center  align-items-center bg-light vh-100">
+    <Container className=" d-flex justify-content-center  align-items-center bg-light ">
       <Row className="  d-flex flex-column flex-md-row">
         <Col className=" p-4 bg-light rounded d-flex justify-content-center align-items-stretch">
           <h5 className="w-75 w-md-25  fw-normal display-5  text-muted">
