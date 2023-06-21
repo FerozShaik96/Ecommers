@@ -7,16 +7,10 @@ import Footer from "../../UI/Footer/Footer";
 const Storepage = () => {
   return (
     <CartProvider>
-      <header>
-        <NavBar />
-        <Header />
-      </header>
-      <main>
-        <Display />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <NavBar />
+      <Header />
+      <Display />
+      <Footer />
     </CartProvider>
   );
 };

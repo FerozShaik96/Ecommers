@@ -1,6 +1,4 @@
 import React, { useEffect, useCallback } from "react";
-import Footer from "../../UI/Footer/Footer";
-import HomeNavBar from "../../Home/HomeNavBar/HomeNavBar";
 import HomeHeader from "../../Home/HomeHeader/Header";
 import HomeContent from "../../Home/HomeContent/HomeContent";
 import HomeForm from "../../Home/HomeForm/HomeForm";
@@ -26,7 +24,6 @@ const HomePage = () => {
       <HomeHeader />
       <HomeForm onAddMovies={AddUserData} />
       <HomeContent />
-      <Footer />
     </React.Fragment>
   );
 };

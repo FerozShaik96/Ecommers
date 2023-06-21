@@ -1,8 +1,7 @@
 import React from "react";
-import AboutNav from "../NavBar/NavBarAbout";
-import AboutHeader from "../Header/AboutHeader";
-import AboutContent from "../Content/AboutContent";
-import Footer from "../../UI/Footer/Footer";
+
+import AboutHeader from "../../About/Header/AboutHeader";
+import AboutContent from "../../About/Content/AboutContent";
 
 const AboutPage = () => {
   return (
@@ -10,7 +9,6 @@ const AboutPage = () => {
       {/* <AboutNav /> */}
       <AboutHeader />
       <AboutContent />
-      <Footer />
     </React.Fragment>
   );
 };
