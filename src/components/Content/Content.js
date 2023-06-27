@@ -1,6 +1,7 @@
 import React, { useRef, useContext } from "react";
 import CartContext from "../../Store/CartContext";
 import { Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Content = (props) => {
   const cartctx = useContext(CartContext);
@@ -26,8 +27,10 @@ const Content = (props) => {
   return (
     <div className="col-sm-1 col-md-auto col-lg-4 m-4">
       <div className="card">
-        <h5 className="card-title text-center m-3">{props.title}</h5>
-        <img src={props.url} className="card-img-top" alt={props.title} />
+        <Link to={`${props.id}`}>
+          <h5 className="card-title text-center m-3">{props.title}</h5>
+          <img src={props.url} className="card-img-top" alt={props.title} />
+        </Link>
         <div className="card-body d-flex justify-content-between align-items-center">
           <span className="card-text ">{props.price}$</span>
           <Form onSubmit={submitHandler}>
