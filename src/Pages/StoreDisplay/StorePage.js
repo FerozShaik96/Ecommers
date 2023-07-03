@@ -1,17 +1,23 @@
 import React from "react";
-import CartProvider from "../../Store/CartProvider";
-import NavBar from "../../components/NavBar/NavBar";
+import { useLoaderData } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Display from "../../components/Display/Display";
-import Footer from "../../UI/Footer/Footer";
 const Storepage = () => {
+  const product = useLoaderData();
   return (
-    <CartProvider>
-      <NavBar />
+    <>
+      {/* <NavBar /> */}
       <Header />
       <Display />
-      <Footer />
-    </CartProvider>
+      {/* <Footer /> */}
+    </>
   );
 };
 export default Storepage;
+
+export async function Loader() {
+  const data = await fetch("https://fakestoreapi.com/products?limit=5");
+  const res = data.json();
+  console.log(res);
+  return res;
+}

@@ -20,8 +20,8 @@ const HomeForm = (props) => {
   };
   return (
     <Container>
-      <Row>
-        <Col className="bg-light d-flex justify-content-center mt-4">
+      <Row className="bg-dark d-flex justify-content-center">
+        <Col className="bg-light w-75 mt-4 ">
           <Form onSubmit={submitHandler}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Movie Name </Form.Label>
