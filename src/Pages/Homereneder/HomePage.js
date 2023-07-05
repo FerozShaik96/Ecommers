@@ -1,5 +1,4 @@
 import React, { useEffect, useCallback } from "react";
-import HomeHeader from "../../Home/HomeHeader/Header";
 import HomeContent from "../../Home/HomeContent/HomeContent";
 import HomeForm from "../../Home/HomeForm/HomeForm";
 const HomePage = () => {
@@ -20,8 +19,6 @@ const HomePage = () => {
 
   return (
     <React.Fragment>
-      {/* <HomeNavBar /> */}
-      <HomeHeader />
       <HomeForm onAddMovies={AddUserData} />
       <HomeContent />
     </React.Fragment>
