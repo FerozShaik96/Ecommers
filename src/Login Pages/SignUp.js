@@ -17,6 +17,28 @@ function SignUp() {
     //   window.alert("Please enter the Password more than 7 digits");
     // }
     setIsLoading(true);
+    const data = await fetch(
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCgENEUBr-70VlZ1Zk6wWw_415v6getB9Y",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          email: enterdEmail,
+          password: enterdPassword,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "content-Type": "application/json",
+        },
+      }
+    );
+    const response = await data.json();
+    if (response && response.error && response.error.message) {
+      let errorMessage = "Authentication failed";
+      errorMessage = response.error.message;
+      alert(errorMessage);
+    }
+    setIsLoading(false);
+    return response;
   };
   return (
     <div className="login template my-4  d-flex justify-content-center align-items-center">
