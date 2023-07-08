@@ -26,7 +26,13 @@ const SignIn = () => {
       const data = await response;
       if (data.ok) {
         const authData = await data.json();
-        console.log(authData);
+        const cartData = {
+          Loggedin: authData.registered,
+          AuthToken: authData.idToken,
+        };
+        const cartDataObj = JSON.stringify(cartData);
+        localStorage.setItem("UserDetails", cartDataObj);
+        console.log(cartData);
       } else {
         let errorMessage = "Authentication failed";
         throw new Error(errorMessage);
