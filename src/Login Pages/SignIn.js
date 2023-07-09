@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
+import AuthContext from "../Store/AuthContect/auth-Context";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const userEmailRef = useRef();
   const userPasswordRef = useRef();
+  const authContext = useContext(AuthContext);
   const submitHandler = async (event) => {
     event.preventDefault();
     const enteredEmail = userEmailRef.current.value;
@@ -26,13 +28,13 @@ const SignIn = () => {
       const data = await response;
       if (data.ok) {
         const authData = await data.json();
+        authContext.login(authData.idToken);
         const cartData = {
           Loggedin: authData.registered,
           AuthToken: authData.idToken,
         };
         const cartDataObj = JSON.stringify(cartData);
         localStorage.setItem("UserDetails", cartDataObj);
-        console.log(cartData);
       } else {
         let errorMessage = "Authentication failed";
         throw new Error(errorMessage);
