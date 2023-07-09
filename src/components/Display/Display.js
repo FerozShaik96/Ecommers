@@ -1,7 +1,6 @@
 import React from "react";
 import Content from "../Content/Content";
 function Display(props) {
-  console.log(props.products);
   return (
     <React.Fragment>
       <h2 className="text-center my-4">Music </h2>

@@ -23,7 +23,6 @@ async function LoaderData() {
     throw json({ message: "Could not able to fetch Data" });
   }
   const response = await data.json();
-  console.log(response);
   return response;
 }
 export function Loader() {

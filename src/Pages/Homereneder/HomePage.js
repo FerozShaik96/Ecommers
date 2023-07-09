@@ -1,6 +1,7 @@
-import React, { useEffect, useCallback } from "react";
+import React from "react";
 import HomeContent from "../../Home/HomeContent/HomeContent";
 import HomeForm from "../../Home/HomeForm/HomeForm";
+
 const HomePage = () => {
   const AddUserData = async (Movies) => {
     const response = await fetch(
@@ -25,3 +26,15 @@ const HomePage = () => {
   );
 };
 export default HomePage;
+async function LoaderData() {
+  const Data = await fetch(
+    "https://ecommers-8b1d4-default-rtdb.firebaseio.com/movies.json"
+  );
+  if (Data.status !== 200) {
+    throw new Error("Something Went Wrong Please Try again later");
+  } else {
+    const response = await Data.json();
+    console.log(response);
+    return response;
+  }
+}

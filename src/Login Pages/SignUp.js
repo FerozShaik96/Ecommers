@@ -27,7 +27,7 @@ function SignUp() {
           returnSecureToken: true,
         }),
         headers: {
-          "content-Type": "application/json",
+          "Content-Type": "application/json",
         },
       }
     );

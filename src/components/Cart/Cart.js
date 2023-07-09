@@ -3,7 +3,7 @@ import CartContext from "../../Store/CartContext";
 
 const Cart = () => {
   const CartCtx = useContext(CartContext);
-  const TotalUpdatedAmount = CartCtx.totalAmount;
+  const TotalUpdatedAmount = CartCtx.totalAmount.toFixed(2);
   return (
     <React.Fragment>
       {CartCtx.items.map((item) => {
@@ -21,7 +21,11 @@ const Cart = () => {
         );
       })}
       <div className="mt-3 fw-bold text-muted p-2 ms-4 border border-bottum border-info rounded d-flex justify-content-between">
-        Total Amount :- <span>{TotalUpdatedAmount}</span>
+        Total Amount :-{" "}
+        <span>
+          {" "}
+          <strong>$</strong> {TotalUpdatedAmount}
+        </span>
       </div>
     </React.Fragment>
   );
