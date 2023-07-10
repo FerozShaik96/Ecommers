@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import ModalCart from "../Modal/Modal";
 import CartContext from "../../Store/CartContext";
@@ -17,6 +17,7 @@ function NavBar() {
   const LogoutHandler = () => {
     localStorage.removeItem("UserDetails");
     AuthCtx.logout();
+    <Navigate to="signin" />;
   };
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
@@ -32,7 +33,7 @@ function NavBar() {
           <Navbar.Collapse id="basic-navbar-nav ">
             <Nav className=" m-auto gap-5">
               <Link
-                to="/home"
+                to="/"
                 className="text-white p-3 text-decoration-none fs-5 fw-bold "
               >
                 Home
