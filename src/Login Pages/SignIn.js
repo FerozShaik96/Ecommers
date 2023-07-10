@@ -74,7 +74,7 @@ const SignIn = () => {
             <button className="btn btn-primary">Sign In</button>
           </div>
           <p className="text-light   mt-2">
-            <Link className="px-2 text-decoration-none" to="/signup">
+            <Link className="px-2 text-decoration-none" to="/forgotPassword">
               Forgot Password
             </Link>
             <Link className="px-2 " to="/signup">
