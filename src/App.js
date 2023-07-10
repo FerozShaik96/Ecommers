@@ -10,6 +10,7 @@ import Root from "./Pages/Root/Root";
 import ContactPage from "./Pages/ContactPage";
 import SignIn from "./Login Pages/SignIn";
 import SignUp from "./Login Pages/SignUp";
+import ForgotPassword from "./Login Pages/ForgotPassword";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,8 +20,15 @@ const router = createBrowserRouter([
       { path: "home", element: <HomePage /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage /> },
-      { path: "signin", element: <SignIn /> },
-      { path: "signup", element: <SignUp /> },
+      {
+        path: "signin",
+        element: <SignIn />,
+      },
+      { path: "forgotPassword", element: <ForgotPassword /> },
+      {
+        path: "signup",
+        element: <SignUp />,
+      },
       {
         path: "store",
         id: "product-details",
