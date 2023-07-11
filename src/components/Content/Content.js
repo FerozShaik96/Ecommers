@@ -1,12 +1,15 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useEffect, useState } from "react";
 import CartContext from "../../Store/CartContext";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
 const Content = (props) => {
   const cartctx = useContext(CartContext);
+  const [enterd, setEnteredData] = useState(true);
   const Amountref = useRef();
+  let email = localStorage.getItem("email");
+  email = email.replace(/[^a-zA-Z0-9]/g, "");
   const submitHandler = (event) => {
+    setEnteredData(!enterd);
     event.preventDefault();
     const Amount = Amountref.current.value;
     const UpdatedAmount = +Amount;
@@ -23,6 +26,39 @@ const Content = (props) => {
       id,
     };
     cartctx.addItem(Data);
+    //   fetch(
+    //     `https://crudcrud.com/api/04d7bdbe2b4c4efd8cb7bdc97a1d5425/Ecommers${email}`,
+    //     {
+    //       method: "POST",
+    //       body: JSON.stringify({
+    //         id: id,
+    //         Title: Title,
+    //         Price: Price,
+    //         UpdatedAmount: UpdatedAmount,
+    //       }),
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   )
+    //     .then((res) => res.json())
+    //     .then((data) => console.log(data));
+    // };
+    // useEffect(() => {
+    //   fetch(
+    //     `https://crudcrud.com/api/04d7bdbe2b4c4efd8cb7bdc97a1d5425/Ecommers${email}`
+    //   )
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //       console.log(typeof data[0].UpdatedAmount);
+    //       return cartctx.addItem(
+    //         data.map((item) => {
+    //           return item;
+    //         })
+    //       );
+    //     });
+    // }, []);
   };
   return (
     <div className="col-sm-1 col-md-auto col-lg-4 m-4">
