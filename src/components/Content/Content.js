@@ -6,8 +6,8 @@ const Content = (props) => {
   const cartctx = useContext(CartContext);
   const [enterd, setEnteredData] = useState(true);
   const Amountref = useRef();
-  let email = localStorage.getItem("email");
-  email = email.replace(/[^a-zA-Z0-9]/g, "");
+  // let email = localStorage.getItem("email");
+  // email = email.replace(/[^a-zA-Z0-9]/g, "");
   const submitHandler = (event) => {
     setEnteredData(!enterd);
     event.preventDefault();
