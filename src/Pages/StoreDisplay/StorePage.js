@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
-import { Await, defer, json, useRouteLoaderData } from "react-router-dom";
+import { Await, defer, json, useLoaderData } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Display from "../../components/Display/Display";
 const Storepage = () => {
-  const { products } = useRouteLoaderData("product-details");
+  const { products } = useLoaderData();
 
   return (
     <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>

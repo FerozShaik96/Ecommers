@@ -1,11 +1,11 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./Pages/Homereneder/HomePage";
-import Storepage, {
-  Loader as displayLoader,
-} from "./Pages/StoreDisplay/StorePage";
+// import Storepage, {
+//   Loader as displayLoader,
+// } from "./Pages/StoreDisplay/StorePage";
 import AboutPage from "./Pages/Aboutrender/About";
-import ProductDisplay from "./Pages/ProductDisplay/ProductDisplay";
+// import ProductDisplay from "./Pages/ProductDisplay/ProductDisplay";
 import Root from "./Pages/Root/Root";
 import ContactPage from "./Pages/ContactPage";
 import SignIn from "./Login Pages/SignIn";
@@ -13,6 +13,10 @@ import SignUp from "./Login Pages/SignUp";
 import ForgotPassword from "./Login Pages/ForgotPassword";
 import AuthProtect from "./Pages/AuthRouter/AuthProtect";
 import AuthLogin from "./Pages/AuthRouter/AuthLogin";
+const Storepage = lazy(() => import("./Pages/StoreDisplay/StorePage"));
+const ProductDisplay = lazy(() =>
+  import("./Pages/ProductDisplay/ProductDisplay")
+);
 function App() {
   const router = createBrowserRouter([
     {
@@ -36,10 +40,27 @@ function App() {
             {
               path: "store",
               id: "product-details",
-              loader: displayLoader,
               children: [
-                { index: true, element: <Storepage /> },
-                { path: ":id", element: <ProductDisplay /> },
+                {
+                  index: true,
+                  element: (
+                    <Suspense fallback={<p>Loading...</p>}>
+                      <Storepage />
+                    </Suspense>
+                  ),
+                  loader: () =>
+                    import("./Pages/StoreDisplay/StorePage").then((module) =>
+                      module.Loader()
+                    ),
+                },
+                {
+                  path: ":id",
+                  element: (
+                    <Suspense fallback={<p>Loading...</p>}>
+                      <ProductDisplay />
+                    </Suspense>
+                  ),
+                },
               ],
             },
           ],
